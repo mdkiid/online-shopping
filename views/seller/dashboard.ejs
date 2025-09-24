@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>卖家仪表盘</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>卖家仪表盘</h1>
+            <nav class="seller-nav">
+                <a href="/seller/dashboard">仪表盘</a>
+                <a href="/seller/products/history">历史商品</a>
+                <a href="/seller/change-password">修改密码</a>
+                <a href="/seller/logout">退出</a>
+            </nav>
+        </header>
+        
+        <main>
+            <section class="current-product">
+                <h2>当前商品</h2>
+                <% if (product) { %>
+                    <div class="product-info">
+                        <h3><%= product.name %></h3>
+                        <p>状态: <%= product.status %></p>
+                        <p>价格: ¥<%= product.price %></p>
+                    </div>
+                <% } else { %>
+                    <p>暂无商品</p>
+                <% } %>
+            </section>
+            
+            <section class="publish-product">
+                <h2>发布新商品</h2>
+                <form action="/seller/product" method="POST" class="product-form">
+                    <div class="form-group">
+                        <label for="name">商品名称:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="description">商品描述:</label>
+                        <textarea id="description" name="description" required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="price">价格:</label>
+                        <input type="number" id="price" name="price" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="image_url">图片URL:</label>
+                        <input type="text" id="image_url" name="image_url">
+                    </div>
+                    
+                    <button type="submit" class="submit-button">发布商品</button>
+                </form>
+            </section>
+            
+            <section class="pending-orders">
+                <h2>待处理订单 (<%= orders.length %>)</h2>
+                <% if (orders.length > 0) { %>
+                    <table class="orders-table">
+                        <thead>
+                            <tr>
+                                <th>商品</th>
+                                <th>买家</th>
+                                <th>联系方式</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% orders.forEach(order => { %>
+                                <tr>
+                                    <td><%= order.product_name %></td>
+                                    <td><%= order.user_name %></td>
+                                    <td>
+                                        <%= order.email %><br>
+                                        <%= order.phone %>
+                                    </td>
+                                    <td>
+                                        <form action="/seller/order/<%= order.id %>/complete" method="POST" style="display: inline;">
+                                            <button type="submit" class="success-button">完成交易</button>
+                                        </form>
+                                        <form action="/seller/order/<%= order.id %>/cancel" method="POST" style="display: inline;">
+                                            <button type="submit" class="cancel-button">取消交易</button>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <% }); %>
+                        </tbody>
+                    </table>
+                <% } else { %>
+                    <p>暂无待处理订单</p>
+                <% } %>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

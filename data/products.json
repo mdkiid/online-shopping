@@ -1,0 +1,47 @@
+[
+  {
+    "id": "6679fc63-8ea8-4c22-8f5d-463d49189a42",
+    "name": "帽子",
+    "description": "一顶实用鸭嘴帽",
+    "image_url": "https://link.bmwas.cn/vmini?c=hWwVgS",
+    "price": 30,
+    "status": "available",
+    "created_at": "2025-09-18T09:10:17.618Z"
+  },
+  {
+    "id": "9a23ace8-b84f-4d41-8a04-55640165b531",
+    "name": "帽子",
+    "description": "鸭嘴帽2号",
+    "image_url": "https://splendid-jade-2vncojydfl.edgeone.app/12016971812_198636061.jpg",
+    "price": 30,
+    "status": "available",
+    "created_at": "2025-09-18T09:15:00.469Z"
+  },
+  {
+    "id": "66c18bea-1af5-43b2-8b80-82f0f141d552",
+    "name": "帽子",
+    "description": "普通帽子",
+    "image_url": "/images/default.jpg",
+    "price": 30,
+    "status": "available",
+    "created_at": "2025-09-18T09:52:45.262Z"
+  },
+  {
+    "id": "3e66f953-8f9e-441e-a28b-fe3cb155aaa6",
+    "name": "313",
+    "description": "3131",
+    "image_url": "https://splendid-jade-2vncojydfl.edgeone.app/12016971812_198636061.jpg",
+    "price": 3131,
+    "status": "available",
+    "created_at": "2025-09-18T11:14:25.494Z"
+  },
+  {
+    "id": "f786acac-d022-4e59-9123-fb599794b7ac",
+    "name": "313",
+    "description": "大大",
+    "image_url": "https://picsum.photos/300/300",
+    "price": 3131,
+    "status": "frozen",
+    "created_at": "2025-09-18T11:15:16.961Z"
+  }
+]
